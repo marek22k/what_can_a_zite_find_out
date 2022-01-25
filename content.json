@@ -1,0 +1,32 @@
+{
+ "address": "19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B",
+ "address_index": 41353791,
+ "background-color": "#FFF",
+ "clone_root": "template-new",
+ "cloned_from": "1HELLoE3sFD9569CLCbHEAVqvqV7U2Ri9d",
+ "description": "",
+ "files": {
+  "index.html": {
+   "sha512": "9af71b60c702c17323aceb51917f45050a871c8da9fe84b58b7d87d379982490",
+   "size": 17997
+  },
+  "js/ZeroFrame.js": {
+   "sha512": "76a24d167e8a4c45f7d1b315efe31e4b4ccb19efef011c080994c94045ff4c93",
+   "size": 5088
+  },
+  "p2p.json": {
+   "sha512": "e19a91fef7d1e80cae8a59d8a3ce6126b905e032295bb2d7df2c13c82f81a808",
+   "size": 456
+  }
+ },
+ "ignore": "",
+ "inner_path": "content.json",
+ "modified": 1643144746,
+ "postmessage_nonce_security": true,
+ "signers_sign": "G0vqMobdHGVJKhFQYTuJgzW0bp3C78Yo0jij7Pi66qKhNEbSCMkzqN9g/fUBAYnXVIjTtoO6oG44GdsDKUrIPHM=",
+ "signs": {"19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B": "Gzr1hWIjUdkFee06f++sK/ox2C1/T+UZ9B3+e8/Pn0ebXaCFzO6PioYiSD91z3XSlZEntGrEuAtS1uZ49yBGkyc="},
+ "signs_required": 1,
+ "title": "What can a zite find out?",
+ "translate": ["js/all.js"],
+ "zeronet_version": "0.7.6"
+}

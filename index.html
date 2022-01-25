@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>What can a zite find out?</title>
+        <meta name="description" content="This page provides a small overview of what a zite can find out about you. You can also test some zeroframe functions.">
+        <base href="" target="_top" id="base">
+        <script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
+
+        <style>
+            li::before {
+                font-style: italic;
+            }
+            #auth_address::before {
+                content: "Current user's bitcoin address: ";
+            }
+            #cert_user_id::before {
+                content: "Currently selected certificate for the site: ";
+            }
+            #settings_serving::before {
+                content: "Site enabled?: ";
+            }
+            #settings_permissions::before {
+                content: "Site's permission: ";
+            }
+            #settings_cache_time_modified_files_check::before {
+                content: "Last time the page was checked for updates: ";
+            }
+            #settings_size::before {
+                content: "Site total size: ";
+            }
+            #settings_size::after {
+                content: "KB";
+            }
+            #settings_ajax_key::before {
+                content: "Ajax key: ";
+            }
+            #settings_peers::before {
+                content: "Saved peers num for sorting: ";
+            }
+            #bad_files::before {
+                content: "Files that needs to be download: ";
+            }
+            #size_limit::before {
+                content: "Current site size limit: ";
+            }
+            #size_limit::after {
+                content: "MB";
+            }
+            #next_size_limit::before {
+                content: "Size limit required by sum of site's files: ";
+            }
+            #peers::before {
+                content: "Peers of site: ";
+            }
+            #started_task_num::before {
+                content: "Last number of files downloaded: ";
+            }
+            #tasks::before {
+                content: "Number of files currently under download: ";
+            }
+            #workers::before {
+                content: "Current concurent downloads: ";
+            }
+            #peermessage::before {
+                content: "Peermessage installed?: ";
+            }
+            #cookieEnabled::before {
+                content: "Cookies enabled?: ";
+            }
+            #appName::before {
+                content: "Browser's application name: ";
+            }
+            #appCodeName::before {
+                content: "Browser's application code name: ";
+            }
+            #product::before {
+                content: "Browser engine's product name: ";
+            }
+            #appVersion::before {
+                content: "Browser's version information: ";
+            }
+            #userAgent::before {
+                content: "user-agent header sent: ";
+            }
+            #platform::before {
+                content: "Browser's platform (operating system): ";
+            }
+            #language::before {
+                content: "Browser's language: ";
+            }
+            #onLine::before {
+                content: "Is browser is online?: ";
+            }
+            #debug_mode::before {
+                content: "Debug mode?: ";
+            }
+            #fileserver_ip::before {
+                content: "Fileserver ip: ";
+            }
+            #fileserver_port::before {
+                content: "Fileserver port: ";
+            }
+            #ip_external::before {
+                content: "IP external?: ";
+            }
+            #language2::before {
+                content: "Language: ";
+            }
+            #offline::before {
+                content: "Offline?: ";
+            }
+            #platform2::before {
+                content: "Zeronet's platform (operating system): ";
+            }
+            #plugins::before {
+                content: "Plugins: ";
+            }
+            #plugins_rev::before {
+                content: "Plugins revision: ";
+            }
+            #port_opened::before {
+                content: "port_opened: ";
+            }
+            #port_openedv4::before {
+                content: "Port opened IPv4: ";
+            }
+            #port_openedv6::before {
+                content: "Port opened IPv6: ";
+            }
+            #rev::before {
+                content: "Zeronet revision: ";
+            }
+            #timecorrection::before {
+                content: "Time correction: ";
+            }
+            #timecorrection::after {
+                content: "s";
+            }
+            #tor_enabled::before {
+                content: "Tor enabled?: ";
+            }
+            #tor_has_meek_bridges::before {
+                content: "Tor has meek bridges?: ";
+            }
+            #tor_status::before {
+                content: "Tor status: ";
+            }
+            #tor_use_bridges::before {
+                content: "Tor use bridges?: ";
+            }
+            #ui::before {
+                content: "Zeronet UI: ";
+            }
+            #user_settings_theme::before {
+                content: "Theme: ";
+            }
+            #user_settings_use_system_theme::before {
+                content: "Use system theme?: ";
+            }
+            #version::before {
+                content: "Version: ";
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div>
+            <h1>What can a Zite find out?</h1>
+            <ul>
+                <li><b>Zeroframe</b>
+                    <ul>
+                        <li><b>General</b>
+                            <ul>
+                                <li id="auth_address"></li>
+                                <li><span id="cert_user_id"></span> <button onclick="login()">Select certificate</button></li>
+                                <li id="settings_serving"></li>
+                                <li id="settings_permissions"></li>
+                                <li id="settings_ajax_key"></li>
+                                <li id="peers"></li>
+                                <li id="peermessage">No</li>
+                            </ul>
+                        </li>
+                        <li><b>Server info / Zeronet</b>
+                            <ul>
+                                <li id="debug_mode"></li>
+                                <li id="fileserver_ip"></li>
+                                <li id="fileserver_port"></li>
+                                <li id="ip_external"></li>
+                                <li id="language2"></li>
+                                <li id="offline"></li>
+                                <li id="platform2"></li>
+                                <li id="plugins">
+                                    <ul id="plugins_list"></ul>
+                                </li>
+                                <li id="plugins_rev">
+                                    <ul id="plugins_rev_cnt"></ul>
+                                </li>
+                                <li id="port_openedv4"></li>
+                                <li id="port_openedv6"></li>
+                                <li id="rev"></li>
+                                <li id="timecorrection"></li>
+                                <li id="tor_enabled"></li>
+                                <li id="tor_has_meek_bridges"></li>
+                                <li id="tor_status"></li>
+                                <li id="tor_use_bridges"></li>
+                                <li id="ui"><span id="ui_ip"></span>:<span id="ui_port"></span></li>
+                                <li id="user_settings_theme"></li>
+                                <li id="user_settings_use_system_theme"></li>
+                                <li id="version"></li>
+                            </ul>
+                        </li>
+                        <li><b>This site</b>
+                            <ul>
+                                <li id="settings_cache_time_modified_files_check"></li>
+                                <li id="settings_size"></li>
+                                <li id="settings_peers"></li>
+                                <li id="tasks"></li>
+                                <li id="workers"></li>
+                                <li id="started_task_num"></li>
+                                <li id="size_limit"></li>
+                                <li id="next_size_limit"></li>
+                                <li id="bad_files"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Navigator</b>
+                    <ul>
+                        <li id="cookieEnabled"></li>
+                        <li id="appName"></li>
+                        <li id="appCodeName"></li>
+                        <li id="product"></li>
+                        <li id="appVersion"></li>
+                        <li id="userAgent"></li>
+                        <li id="platform"></li>
+                        <li id="language"></li>
+                        <li id="onLine"></li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <ul>
+                <li><b>Notification tests:</b>
+                    <button onclick="testNotification('info')">Info</button>
+                    <button onclick="testNotification('error')">Error</button>
+                    <button onclick="testNotification('done')">Done</button>
+                </li>
+                <li><b>Confirmation tests:</b>
+                    <button onclick="testConfirmation()">Test</button>
+                </li>
+                <li><b>Prompt tests:</b>
+                    <button onclick="testPrompt('text')">Text</button>
+                    <button onclick="testPrompt('password')">Password</button>
+                </li>
+            </ul>
+            
+            For a documentation of the functions see <a href="/1DocsYf2tZVVMEMJFHiDsppmFicZCWkVv1/site_development/zeroframe_api_reference/" target="_blank">ZeroFrame API Reference</a>.
+        </div>
+
+        <script src="js/ZeroFrame.js"></script>
+
+        <script>
+            var zeroFrame = new ZeroFrame();
+
+            var identity_provider = ["zeroid.bit", "cryptoid.bit", "kaffie.bit", "zv.anonymous", "0ch.anonymous", "millchan"];
+
+            function testConfirmation() {
+                zeroFrame.cmd('wrapperConfirm', ["Confirm?", "Yes"], (confirmed) => {
+                    zeroFrame.cmd("wrapperNotification",
+                        ["done", (confirmed ? "C" : "Not c") + "onfirmed", 4500]);
+                });
+            }
+
+            function testNotification(type) {
+                zeroFrame.cmd("wrapperNotification",
+                    [type, "Test notification for 3s", 3000]);
+            }
+            
+            function testPrompt(type) {
+                zeroFrame.cmd("wrapperPrompt", ["Enter anything:", type], function(text) {
+                    zeroFrame.cmd("wrapperNotification",
+                        ["info", 'You entered "' + text + '".', 5000]);
+                });
+            }
+
+            function getNavigatorInfo() {
+                document.getElementById("cookieEnabled").innerHTML = navigator.cookieEnabled;
+                document.getElementById("appName").innerHTML = navigator.appName;
+                document.getElementById("appCodeName").innerHTML = navigator.appCodeName;
+                document.getElementById("product").innerHTML = navigator.product;
+                document.getElementById("appVersion").innerHTML = navigator.appVersion;
+                document.getElementById("userAgent").innerHTML = navigator.userAgent;
+                document.getElementById("platform").innerHTML = navigator.platform;
+                document.getElementById("language").innerHTML = navigator.language;
+                document.getElementById("onLine").innerHTML = navigator.onLine;
+            }
+            
+            function checkDownloadStatus() {
+                zeroFrame.cmd("siteInfo", [], (res) => {
+                     if (res.tasks !== 0) {
+                        zeroFrame.cmd("wrapperNotification",
+                            ["info", "Zite is still downloading. This could affect the functionality.", 4000]);
+                     }
+                 });
+            }
+
+            function testConnection() {
+                zeroFrame.cmd("ping", [], (pong) => {
+                    if (pong === "pong") {
+                        zeroFrame.cmd("wrapperNotification",
+                            ["done", "Connection to UiServer websocket successful.", 4000]);
+                    } else {
+                        zeroFrame.cmd("wrapperNotification",
+                            ["error", "Connection to UiServer websocket failed."]);
+                    }
+                });
+            }
+
+            function getSiteInfo() {
+                zeroFrame.cmd("siteInfo", [], function(si) {
+                    document.getElementById("auth_address").innerHTML = si.auth_address;
+                    document.getElementById("cert_user_id").innerHTML = si.cert_user_id;
+                    document.getElementById("settings_serving").innerHTML = si.settings.serving;
+                    document.getElementById("settings_permissions").innerHTML = si.settings.permissions;
+                    document.getElementById("settings_cache_time_modified_files_check").innerHTML = si.settings.cache.time_modified_files_check;
+                    document.getElementById("settings_size").innerHTML = si.settings.size / 1024.0;
+                    document.getElementById("settings_ajax_key").innerHTML = si.settings.ajax_key;
+                    document.getElementById("settings_peers").innerHTML = si.settings.peers;
+                    document.getElementById("bad_files").innerHTML = si.bad_files;
+                    document.getElementById("size_limit").innerHTML = si.size_limit;
+                    document.getElementById("next_size_limit").innerHTML = si.next_size_limit;
+                    document.getElementById("peers").innerHTML = si.peers;
+                    document.getElementById("started_task_num").innerHTML = si.started_task_num;
+                    document.getElementById("tasks").innerHTML = si.tasks;
+                    document.getElementById("workers").innerHTML = si.workers;
+                });
+            }
+            
+            function getPeermessageInfo() {
+                zeroFrame.cmd("peerBroadcast", ["test", false], (res) => {
+                    var out = document.getElementById("peermessage");
+                    out.innerHTML = (res.sent ? "Yes" : "No - " + res.error);
+                    console.log(res);
+                });
+            }
+            
+            function getServerInfo() {
+                zeroFrame.cmd("serverInfo", [], function(si) {
+                    document.getElementById("debug_mode").innerHTML = si.debug;
+                    document.getElementById("fileserver_ip").innerHTML = si.fileserver_ip;
+                    document.getElementById("fileserver_port").innerHTML = si.fileserver_port;
+                    document.getElementById("ip_external").innerHTML = si.ip_external;
+                    document.getElementById("language2").innerHTML = si.language;
+                    document.getElementById("offline").innerHTML = si.offline;
+                    document.getElementById("platform2").innerHTML = si.platform;
+                    var lplugins = document.getElementById("plugins_list");
+                    console.log("inhalt", document.getElementById("plugins_list"));
+                    lplugins.innerHTML = "";
+                    si.plugins.forEach(function (key) {
+                       lplugins.innerHTML += "<li>" + key + "</li>\n"; 
+                    });
+                    var plugrev = document.getElementById("plugins_rev_cnt");
+                    plugrev.innerHTML = "";
+                    Object.keys(si.plugins_rev).forEach(function (key) {
+                        plugrev.innerHTML += "<li>" + key + ": " + si.plugins_rev[key] + "</li>\n";
+                    });
+                    document.getElementById("port_openedv4").innerHTML = si.port_opened.ipv4;
+                    document.getElementById("port_openedv6").innerHTML = si.port_opened.ipv6;
+                    document.getElementById("rev").innerHTML = si.rev;
+                    document.getElementById("timecorrection").innerHTML = si.timecorrection;
+                    document.getElementById("tor_enabled").innerHTML = si.tor_enabled;
+                    document.getElementById("tor_has_meek_bridges").innerHTML = si.tor_has_meek_bridges;
+                    document.getElementById("tor_status").innerHTML = si.tor_status;
+                    document.getElementById("tor_use_bridges").innerHTML = si.tor_use_bridges;
+                    document.getElementById("ui_ip").innerHTML = si.ui_ip;
+                    document.getElementById("ui_port").innerHTML = si.ui_port;
+                    document.getElementById("user_settings_theme").innerHTML = si.user_settings.theme;
+                    document.getElementById("user_settings_use_system_theme").innerHTML = si.user_settings.use_system_theme;
+                    document.getElementById("version").innerHTML = si.version;
+                });
+            }
+
+            testConnection();
+            checkDownloadStatus();
+            getSiteInfo();
+            getServerInfo();
+            getPeermessageInfo();
+            getNavigatorInfo();
+
+            function login() {
+                zeroFrame.cmd("certSelect", [identity_provider], () => {
+                    getSiteInfo();
+                });
+            }
+        </script>
+    </body>
+</html>
