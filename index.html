@@ -254,6 +254,15 @@
                     <button onclick="testPrompt('password')">Password</button>
                 </li>
             </ul>
+            <br>
+            <button onclick="loadAllInformation()">Reload all</button>
+            (Can help if not all information is loaded)<br>
+            <button onclick="testConnection()">Test connection to UiServer</button>
+            <button onclick="getNavigatorInfo()">Reload Navigator information</button>
+            <button onclick="getSiteInfo()">Reload site information</button><br>
+            <button onclick="getPeermessageInfo()">Reload PeerMessage Plugin information</button>
+            <button onclick="getServerInfo()">Reload server information</button>
+            <br><br>
             <button onclick="toClearnetTest()">Check connection to clearnet</button>
             <br><br>
             
@@ -264,8 +273,6 @@
 
         <script>
             var zeroFrame = new ZeroFrame();
-
-            var identity_provider = ["zeroid.bit", "cryptoid.bit", "kaffie.bit", "zv.anonymous", "0ch.anonymous", "millchan"];
 
             function toClearnetTest() {
                 zeroFrame.cmd('wrapperConfirm', ["The test will try to connect to the clearnet. Is this ok?", "Yes"], (confirmed) => {
@@ -393,15 +400,19 @@
                 });
             }
 
-            testConnection();
-            checkDownloadStatus();
-            getSiteInfo();
-            getServerInfo();
-            getPeermessageInfo();
-            getNavigatorInfo();
+            function loadAllInformation() {
+                testConnection();
+                checkDownloadStatus();
+                getSiteInfo();
+                getServerInfo();
+                getPeermessageInfo();
+                getNavigatorInfo();
+            }
+            
+            loadAllInformation();
 
             function login() {
-                zeroFrame.cmd("certSelect", [identity_provider], () => {
+                zeroFrame.cmd("certSelect", [[], true], () => {
                     getSiteInfo();
                 });
             }

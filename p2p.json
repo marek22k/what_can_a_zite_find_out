@@ -1,11 +1,3 @@
 {
-    "filter": "",
-    "cert_signers": {
-        "zeroid.bit":       ["1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz"],
-        "cryptoid.bit":     ["18143WPue3rQykNaopx5KJKzYmaYhCjqhv"],
-        "kaffie.bit":       ["1KH5BdNnqxh2KRWMMT8wUXzUgz4vVQ4S8p"],
-        "zv.anonymous":     ["1LtYcRchH5f5wKeW5jdFXGdnqnKNXBb7m6"],
-        "0ch.anonymous":    ["1LP86ye2hyMGP1UvGxnk7F8Qg9vN1HpVLy"],
-        "millchan":         ["1NwwLdiFBcVAA4jXQ712ZtQfDHEMvk8BiD"]
-    }
+    "filter": ""
 }
