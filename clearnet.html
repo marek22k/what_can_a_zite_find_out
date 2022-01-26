@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>What can a zite find out? - Clearnet test</title>
+        <base href="" target="_top" id="base">
+        <script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
+    
+        <style>
+            #iframe_test {
+                min-width: 40%;
+                min-height: 215px;
+                border: 3px solid red;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <iframe src="https://about-you.bandura.mk16.de/zeronet.php" id="iframe_test">
+            Your browser does not allow loading iframes. On the one hand,
+            this can be bad, since various zites might not work, on the other
+            hand, this is good, because it excludes that a connection to the
+            clearnet is established via an iframe.
+        </iframe>
+        
+        <div>
+            <b>How does the test work?</b><br>
+            A connection to the clearnet is attempted using two different
+            methods (iframe and loading JavaScript).<br>
+            Should the iframe test work and be able to connect to the clearnet,
+            a message will appear above this text.<br>
+            If the JavaScript test works and is able to connect to the clearnet,
+            a zeronet notification will be displayed.<br>
+            Both messages contain your presumed IP address. I do not actively
+            save the IP address<br>(it is always possible that an ISP or hoster
+            records the traffic).<br>
+            <b>How can i prevent it?</b><br>
+            A solution suggestion would be that you use a separate browser to
+            visit zites,<br>which does not allow connection outside 127.0.0.1
+            or localhost.<br> For example, you could enable a proxy in Firefox
+            and specify the address of<br>a non-existent proxy (e.g. host:
+            127.0.0.1, port: 43321) and<br>only add exceptions for 127.0.0.1 or
+            localhost.
+        </div>
+        <div>
+            <br>
+            <a href="./">Back to home page</a>
+        </div>
+        
+        <script src="js/ZeroFrame.js"></script>
+        <script src="https://about-you.bandura.mk16.de/js/zeronet_test.js"></script>
+        
+        <script>
+            var zeroFrame = new ZeroFrame();
+            
+            testCleanetConnection(zeroFrame);
+        </script>
+    </body>
+</html>

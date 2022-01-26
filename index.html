@@ -254,6 +254,8 @@
                     <button onclick="testPrompt('password')">Password</button>
                 </li>
             </ul>
+            <button onclick="toClearnetTest()">Check connection to clearnet</button>
+            <br><br>
             
             For a documentation of the functions see <a href="/1DocsYf2tZVVMEMJFHiDsppmFicZCWkVv1/site_development/zeroframe_api_reference/" target="_blank">ZeroFrame API Reference</a>.
         </div>
@@ -264,6 +266,16 @@
             var zeroFrame = new ZeroFrame();
 
             var identity_provider = ["zeroid.bit", "cryptoid.bit", "kaffie.bit", "zv.anonymous", "0ch.anonymous", "millchan"];
+
+            function toClearnetTest() {
+                zeroFrame.cmd('wrapperConfirm', ["The test will try to connect to the clearnet. Is this ok?", "Yes"], (confirmed) => {
+                    if (confirmed) {
+                        window.location = "clearnet.html";
+                        zeroFrame.cmd("wrapperNotification",
+                            ["done", "You will be redirected to the Clearnet test..."]);
+                    }
+                });
+            }
 
             function testConfirmation() {
                 zeroFrame.cmd('wrapperConfirm', ["Confirm?", "Yes"], (confirmed) => {

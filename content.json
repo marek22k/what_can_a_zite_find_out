@@ -5,9 +5,13 @@
  "cloneable": true,
  "description": "This page provides a small overview of what a zite can find out about you. You can also test some zeroframe functions.",
  "files": {
+  "clearnet.html": {
+   "sha512": "24dc17450a89012f88d0648a6864c729c6df3456e25b18d61d429b00b250728d",
+   "size": 2548
+  },
   "index.html": {
-   "sha512": "9af71b60c702c17323aceb51917f45050a871c8da9fe84b58b7d87d379982490",
-   "size": 17997
+   "sha512": "fdd27ada63b518c0062bf694a4f846aa1fe79bbc1e26352311ca3f94cdcbb91d",
+   "size": 18581
   },
   "js/ZeroFrame.js": {
    "sha512": "76a24d167e8a4c45f7d1b315efe31e4b4ccb19efef011c080994c94045ff4c93",
@@ -20,10 +24,10 @@
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1643145514,
+ "modified": 1643221033,
  "postmessage_nonce_security": true,
  "signers_sign": "G0vqMobdHGVJKhFQYTuJgzW0bp3C78Yo0jij7Pi66qKhNEbSCMkzqN9g/fUBAYnXVIjTtoO6oG44GdsDKUrIPHM=",
- "signs": {"19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B": "HAC07/02To0YfkODiS5r/dBLnDalt232xO3AKs9wATZCaqvve8S9OtZHtWpe2Bv6ciS9MsGt8ltoveLvy2Ujyh0="},
+ "signs": {"19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B": "G/dvgkSKbCR6jnVFkHWTGgYEIkDPH/jVtrQSqYpIM4uNRtBakIDUjcCC2QLoUJR9N7l94vW38vPw0+tTmGNTIS8="},
  "signs_required": 1,
  "title": "What can a zite find out?",
  "translate": ["js/all.js"],
