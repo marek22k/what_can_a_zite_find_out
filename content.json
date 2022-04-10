@@ -10,8 +10,8 @@
    "size": 2548
   },
   "index.html": {
-   "sha512": "57a4adbd7d5ee5379865e775719ec9ddcf7430b3229b5cd697c4f0070fe85e71",
-   "size": 19079
+   "sha512": "cf443c59756a28a4011a77e6685ab57596e0351b1ccef4474ca0dafbb45fbb64",
+   "size": 22097
   },
   "js/ZeroFrame.js": {
    "sha512": "76a24d167e8a4c45f7d1b315efe31e4b4ccb19efef011c080994c94045ff4c93",
@@ -24,12 +24,12 @@
  },
  "ignore": "",
  "inner_path": "content.json",
- "modified": 1643225883,
+ "modified": 1649612271,
  "postmessage_nonce_security": true,
  "signers_sign": "G0vqMobdHGVJKhFQYTuJgzW0bp3C78Yo0jij7Pi66qKhNEbSCMkzqN9g/fUBAYnXVIjTtoO6oG44GdsDKUrIPHM=",
- "signs": {"19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B": "G67Zxhj2nR+uVEQj9smEg+iXq7Dx0JYNKSp4uP//WbkFQr2cEJpDlLZ23u6JqGZaoBYyjKuiTLzGHYm+3e+XRjY="},
+ "signs": {"19scCr6HceYeuGKADK4Qtz1USjNmUHqF5B": "G7DzuV8X2bVOynnGMXwizgZfIen51vWyfdx/RnyExt7Sf3VaKhROJYkK+i/hTh1juB45j+hvx8mI9ANNrDVE4Ug="},
  "signs_required": 1,
  "title": "What can a zite find out?",
  "translate": ["js/all.js"],
- "zeronet_version": "0.7.6"
+ "zeronet_version": "0.7.9"
 }

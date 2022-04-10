@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        
         <title>What can a zite find out?</title>
+        
         <meta name="description" content="This page provides a small overview of what a zite can find out about you. You can also test some zeroframe functions.">
+        
         <base href="" target="_top" id="base">
         <script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
 
@@ -158,6 +161,36 @@
             #version::before {
                 content: "Version: ";
             }
+            #trackers::before {
+                content: "Tracker statistics for current site:";
+            }
+            .num_success::before {
+                content: "Number of successful: ";
+            }
+            .time_last_error::before {
+                content: "Time when the last error happened: ";
+            }
+            .time_status::before {
+                content: "Time of status: ";
+            }
+            .num_request::before {
+                content: "Number of requests: ";
+            }
+            .time_request::before {
+                content: "Time of requests: ";
+            }
+            .num_error::before {
+                content: "Number of errors: ";
+            }
+            .status::before {
+                content: "Status: ";
+            }
+            .tracker_red {
+                color: red;
+            }
+            .tracker_green {
+                color: green;
+            }
         </style>
     </head>
     <body>
@@ -218,6 +251,9 @@
                                 <li id="size_limit"></li>
                                 <li id="next_size_limit"></li>
                                 <li id="bad_files"></li>
+                                <li id="trackers">
+                                    <ul id="tracker_list"></ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -270,6 +306,12 @@
 
         <script>
             var zeroFrame = new ZeroFrame();
+
+            function htmlEncode(str) {
+                return String(str).replace(/[^\w. ]/gi, (c) => {
+                    return '&#' + c.charCodeAt(0) + ';';
+                });
+            }
 
             function toClearnetTest() {
                 zeroFrame.cmd('wrapperConfirm', ["The test will try to connect to the clearnet. Is this ok?", "Yes"], (confirmed) => {
@@ -396,6 +438,27 @@
                     document.getElementById("version").innerHTML = si.version;
                 });
             }
+            
+            function updateTrackers() {
+                zeroFrame.cmd("announcerInfo", [], (info) => {
+                    console.log(info);
+                    const html_list = document.getElementById("tracker_list");
+                    html_list.innerHTML = "";
+                    Object.keys(info.stats).forEach((tracker) => {
+                        let html_class = (info.stats[tracker].status === "announced" ? "green" : "red");
+                        let name = htmlEncode(tracker);
+                        let status = "<li class=\"status\"><strong class=\"tracker_" + html_class + "\">" + htmlEncode(info.stats[tracker].status) + "</strong></li>";
+                        let num_success = "<li class=\"num_success\">" + info.stats[tracker].num_success + "</li>";
+                        let time_last_error = "<li class=\"time_last_error\">" + info.stats[tracker].time_last_error + "</li>";
+                        let time_status = "<li class=\"time_status\">" + info.stats[tracker].time_status + "</li>";
+                        let num_request = "<li class=\"num_request\">" + info.stats[tracker].num_request + "</li>";
+                        let time_request = "<li class=\"time_request\">" + info.stats[tracker].time_request + "</li>";
+                        let num_error = "<li class=\"num_error\">" + info.stats[tracker].num_error + "</li>";
+                        let details = "<ul>" + status + num_success + time_last_error + time_status + num_request + time_request + num_error + "</ul>";
+                        html_list.innerHTML += "<li>" + name + details + "</li>\n";
+                    });
+                });
+            }
 
             function loadAllInformation() {
                 testConnection();
@@ -404,6 +467,7 @@
                 getServerInfo();
                 getPeermessageInfo();
                 getNavigatorInfo();
+                updateTrackers();
             }
             
             loadAllInformation();
